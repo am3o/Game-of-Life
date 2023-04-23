@@ -83,6 +83,7 @@ func createImage(width, height int, grid Grid) *image.Paletted {
 func main() {
 	var (
 		width, height = 1_600, 1_200
+		iterations    = 750
 	)
 
 	start := time.Now()
@@ -97,7 +98,7 @@ func main() {
 	}
 
 	series := []Grid{example}
-	for i := 0; i < 1_000; i++ {
+	for i := 0; i < iterations; i++ {
 		series = append(series, series[len(series)-1].evolve())
 	}
 
